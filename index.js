@@ -1,5 +1,7 @@
 //instantiate github.js
 const github = new GitHub();
+//instantiate UI
+const ui = new UI();
 
 //search input
 const searchButton = document.getElementById('searchUser_button');
@@ -17,7 +19,9 @@ searchButton.addEventListener('click', e => {
       if (data.profile.message === 'Not Found') {
         //show alert
       } else {
-        console.log(data);
+        //show profile
+        //console.log(data);
+        ui.showProfile(data.profile);
       }
     });
   } else {
