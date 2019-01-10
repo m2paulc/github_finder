@@ -18,14 +18,20 @@ searchButton.addEventListener('click', e => {
     github.getUser(searchUser).then(data => {
       if (data.profile.message === 'Not Found') {
         //show alert
-      } else {
+        ui.showAlert('User Not Found', 'alert alert-danger');
+      }
+      else {
         //show profile
         //console.log(data);
         ui.showProfile(data.profile);
+        //show repos
+        ui.showRepos(data.repoData);
       }
     });
-  } else {
-    console.log('search input empty');
+  }
+  else {
+    // console.log('search input empty');
     //clear profile
+    ui.clearProfile();
   }
 });

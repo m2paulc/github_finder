@@ -40,4 +40,50 @@ class UI {
       <div id="repos"></div>
     `;
   }
+
+  showRepos(repos) {
+    let output = '';
+
+    repos.forEach(function(repo) {
+      output += `
+        <div class="card card-body mb-2">
+          <div class="row">
+          </div>
+        </div>
+      `
+    })
+  }
+
+  clearProfile() {
+    this.profile.innerHTML = '';
+  }
+
+  clearAlert() {
+    const currentAlert = document.querySelector('.alert');
+
+    if (currentAlert) {
+      currentAlert.remove();
+    }
+  }
+
+  showAlert(message, className) {
+    const div = document.createElement('div');
+
+    //add class to div
+    div.className = className;
+
+    //add text
+    div.appendChild(document.createTextNode(message));
+
+    //get parent element then insert new node
+    const container = document.querySelector('.searchContainer');
+    const search = document.querySelector('.search');
+
+    container.insertBefore(div, search);
+
+    //timeout after few sec
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
+  }
 }
