@@ -19,17 +19,15 @@ searchButton.addEventListener('click', e => {
       if (data.profile.message === 'Not Found') {
         //show alert
         ui.showAlert('User Not Found', 'alert alert-danger');
-      }
-      else {
+      } else {
         //show profile
         //console.log(data);
         ui.showProfile(data.profile);
         //show repos
-        ui.showRepos(data.repoData);
+        ui.showRepos(data.repos);
       }
     });
-  }
-  else {
+  } else {
     // console.log('search input empty');
     //clear profile
     ui.clearProfile();
